@@ -4,9 +4,9 @@
         <form class="form-signin">
             <h4 class="form-signin-heading">Ayo login!</h4>
             <label for="inputEmail" class="sr-only">Username</label>
-            <input type="text" id="inputUsername" class="form-control" placeholder="Username" required autofocus>
+            <input v-model="username" type="text" id="inputUsername" class="form-control" placeholder="Username" required autofocus>
             <label for="inputPassword" class="sr-only">Password</label>
-            <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+            <input v-model="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
             <div class="checkbox">
                 <label>
                     <input type="checkbox" value="remember-me"> Remember me
@@ -20,24 +20,19 @@
 </template>
 
 <script>
-import axios from 'axios';
+
 import store from '@/vuex/store.js'
 
-export const HTTP = axios.create({
-  baseURL: `http://localhost:8090`,
-  headers: {
-    'Content-Type': 'application/json',
-    'Authorization': 'Bearer {token}'
-  }
-})
 
-// import {HTTP} from './http-common'
+import {HTTP} from '@/router/index'
 
 export default {
     name: 'hello',
     data() {
         return {
-            msg: 'Welcome to My Home'
+            msg: 'Welcome to My Home',
+            username: null,
+            password: null
         }
     },
     store,
@@ -46,14 +41,24 @@ export default {
             this.$store.commit('changeToken', event.target.value)
         },
         getToken: function() {
-            HTTP.post(`/login`, {
-                body: {"username": "admin", 
-                "password": "admin"}})
+            // console.log(this.username)
+            // console.log(this.password)
+            let username = this.username
+            let password = this.password
+            // let login = {
+            //     data: {
+            //         username, password
+            //     }
+            // }
+            
+            HTTP.post(`/login`, {username: username, password: password})
                 .then(response => {
                     // JSON responses are automatically parsed.
+                    console.log(this.login.data)
                     console.log(response)
                 })
                 .catch(e => {
+                    console.log(this.login)
                     console.log(e)
                 })
         }
