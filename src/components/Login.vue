@@ -2,7 +2,7 @@
     <div class="container">
 
         <form class="form-signin">
-            <h2 class="form-signin-heading">Please sign in</h2>
+            <h4 class="form-signin-heading">Ayo login!</h4>
             <label for="inputEmail" class="sr-only">Username</label>
             <input type="text" id="inputUsername" class="form-control" placeholder="Username" required autofocus>
             <label for="inputPassword" class="sr-only">Password</label>
@@ -12,7 +12,7 @@
                     <input type="checkbox" value="remember-me"> Remember me
                 </label>
             </div>
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+            <button class="btn btn-lg btn-primary btn-block" type="submit" @click="getToken">Sign in</button>
         </form>
 
     </div>
@@ -20,53 +20,91 @@
 </template>
 
 <script>
+import axios from 'axios';
+import store from '@/vuex/store.js'
+
+export const HTTP = axios.create({
+  baseURL: `http://localhost:8090`,
+  headers: {
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer {token}'
+  }
+})
+
+// import {HTTP} from './http-common'
+
 export default {
     name: 'hello',
     data() {
         return {
             msg: 'Welcome to My Home'
         }
-    }
+    },
+    store,
+    methods: {
+        changeTkn: function(event) {
+            this.$store.commit('changeToken', event.target.value)
+        },
+        getToken: function() {
+            HTTP.post(`/login`, {
+                body: {"username": "admin", 
+                "password": "admin"}})
+                .then(response => {
+                    // JSON responses are automatically parsed.
+                    console.log(response)
+                })
+                .catch(e => {
+                    console.log(e)
+                })
+        }
+    },
+
 }
 </script>
 <style>
 body {
-  padding-top: 40px;
-  padding-bottom: 40px;
-  background-color: #eee;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: #eee;
 }
 
 .form-signin {
-  max-width: 330px;
-  padding: 15px;
-  margin: 0 auto;
+    max-width: 330px;
+    padding: 8px;
+    margin: 0 auto;
 }
+
 .form-signin .form-signin-heading,
 .form-signin .checkbox {
-  margin-bottom: 10px;
+    margin-bottom: 10px;
 }
+
 .form-signin .checkbox {
-  font-weight: normal;
+    font-weight: normal;
 }
+
 .form-signin .form-control {
-  position: relative;
-  height: auto;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  padding: 10px;
-  font-size: 16px;
+    position: relative;
+    height: auto;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 10px;
+    font-size: 14px;
 }
+
 .form-signin .form-control:focus {
-  z-index: 2;
+    z-index: 2;
 }
+
 .form-signin input[type="username"] {
-  margin-bottom: -1px;
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
 }
+
 .form-signin input[type="password"] {
-  margin-bottom: 10px;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
 }
 </style>
