@@ -38,6 +38,7 @@ export default new Router({
     }
   ]
 })
+// axios.defaults.headers.common['Authorization'] = 'Bearer ' + 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MDcwMDc5MzQsImlhdCI6MTUwNzAwNDMzNCwidXNlcmRhdGEiOnsiaWQiOjEwMCwidXNlcm5hbWUiOiJhZG1pbiIsImFsaWFzIjoibmdhZGltaW4iLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlzYWRtaW4iOmZhbHNlfX0.dria_u-ldiO9WckgsFmK7aNd1HzFqrXpK_nVd11Xwr4EEwi6UnATY_HisvsC2efAvDRus69zqbnVjonBBlpDXTsI2OL5U5DCxc3tZSb_yjL5-HxFftQch0n750As9FdtUlVseg01A6AWIp2gHHzgrbWqrCmt7ODDX8GiSTubb90'
 
 export const HTTP = axios.create({
   baseURL: `http://localhost:8090`,
@@ -47,3 +48,4 @@ export const HTTP = axios.create({
     'Content-Type': 'application/json'
   }
 })
+
