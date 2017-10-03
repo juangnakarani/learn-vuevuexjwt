@@ -41,24 +41,16 @@ export default {
             this.$store.commit('changeToken', event.target.value)
         },
         getToken: function() {
-            // console.log(this.username)
-            // console.log(this.password)
             let username = this.username
             let password = this.password
-            // let login = {
-            //     data: {
-            //         username, password
-            //     }
-            // }
+            let login = {'username': username, 'password': password}
             
-            HTTP.post(`/login`, {username: username, password: password})
+            HTTP.post(`/login`, login)
                 .then(response => {
                     // JSON responses are automatically parsed.
-                    console.log(this.login.data)
                     console.log(response)
                 })
                 .catch(e => {
-                    console.log(this.login)
                     console.log(e)
                 })
         }

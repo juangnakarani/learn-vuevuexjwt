@@ -4,6 +4,8 @@ import Hello from '@/components/Hello'
 import Login from '@/components/Login'
 import Guest from '@/components/Guest'
 import Admin from '@/components/Admin'
+import ForbiddenPage from '@/components/403'
+import axios from 'axios'
 
 Vue.use(Router)
 
@@ -28,15 +30,20 @@ export default new Router({
       path: '/admin',
       name: 'Admin',
       component: Admin
+    },
+    {
+      path: '/403',
+      name: 'ForbiddenPage',
+      component: ForbiddenPage
     }
   ]
 })
 
-import axios from 'axios'
 export const HTTP = axios.create({
   baseURL: `http://localhost:8090`,
+  withCredentials: false,
+  timeout: 1000,
   headers: {
     'Content-Type': 'application/json'
-    // 'Authorization': 'Bearer {token}'
   }
 })
