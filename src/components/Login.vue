@@ -24,7 +24,7 @@
 import store from '@/vuex/store.js'
 
 
-import {HTTP} from '@/router/index'
+import { HTTP } from '@/router/index'
 
 export default {
     name: 'hello',
@@ -43,8 +43,8 @@ export default {
         getToken: function() {
             let username = this.username
             let password = this.password
-            let login = {'username': username, 'password': password}
-            
+            let login = { 'username': username, 'password': password }
+
             HTTP.post(`/login`, login)
                 .then(response => {
                     // JSON responses are automatically parsed.

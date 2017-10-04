@@ -31,9 +31,9 @@ export default {
       withCredentials: true,
       timeout: 1000,
       headers: {
-        'Authorization': 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MDcwODU4MDIsImlhdCI6MTUwNzA4MjIwMiwidXNlcmRhdGEiOnsiaWQiOjAsInVzZXJuYW1lIjoiIiwiYWxpYXMiOiIiLCJlbWFpbCI6IiIsImlzYWRtaW4iOmZhbHNlfX0.ZM_xGD6_meOBrtmUj8-CQyYUECUxDBkf4GeH5Bc3PLnS70QAF7x_F1yshZxYwG7ToPQIkeF0snElOMNwA8tK1Xc4aLaeQaf5xNRnS9oX1qqUDGtkNEYCUBUAwNoa7Z17JVU0IUpJ_bqqPadTdjKQvJfZF813EpHoRymSTq65TPQ',
+        'Authorization': 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MDcxMDg1NDIsImlhdCI6MTUwNzEwNDk0MiwidXNlcmRhdGEiOnsiaWQiOjEwMCwidXNlcm5hbWUiOiJhZG1pbiIsImFsaWFzIjoibmdhZGltaW4iLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlzYWRtaW4iOmZhbHNlfX0.5JwUSSg_P9PRQD0UICBBbD_DgqHKDzgASNZ6-vHR7evtayvnLwQfvVcCYicTcs-4JsqUpSnh3_5TtiexwswzqqoAnOeag6KyGFZUnaZyRohA1E-zLOmHKHH0YPu1hKGnqlsMHZ61Wx8JkPJSZ58dxmk2P0_n2BF8cU3IxU533AY',
         // 'Access-Control-Allow-Credentials': true,
-        // 'Access-Control-Allow-Origin': 'http://192.168.1.12:8080',
+        // 'Access-Control-Allow-Origin': 'http://192.168.1.12:8090',
         // 'Access-Control-Request-Method': 'GET'
 
       }
@@ -47,10 +47,6 @@ export default {
         console.log(e)
         router.push({ path: '/403' })
       })
-
-
-
-
   }
 }
 </script>

@@ -46,6 +46,7 @@ export const HTTP = axios.create({
   timeout: 1000,
   headers: {
     'Content-Type': 'application/json'
+    // 'Access-Control-Allow-Origin': 'http://localhost:8090'
   }
 })
 
