@@ -31,7 +31,7 @@ export default {
       withCredentials: true,
       timeout: 1000,
       headers: {
-        'Authorization': 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MDcxMDg1NDIsImlhdCI6MTUwNzEwNDk0MiwidXNlcmRhdGEiOnsiaWQiOjEwMCwidXNlcm5hbWUiOiJhZG1pbiIsImFsaWFzIjoibmdhZGltaW4iLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlzYWRtaW4iOmZhbHNlfX0.5JwUSSg_P9PRQD0UICBBbD_DgqHKDzgASNZ6-vHR7evtayvnLwQfvVcCYicTcs-4JsqUpSnh3_5TtiexwswzqqoAnOeag6KyGFZUnaZyRohA1E-zLOmHKHH0YPu1hKGnqlsMHZ61Wx8JkPJSZ58dxmk2P0_n2BF8cU3IxU533AY',
+        'Authorization': 'Bearer yJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MDcxMDkzMTEsImlhdCI6MTUwNzEwNTcxMSwidXNlcmRhdGEiOnsiaWQiOjEwMCwidXNlcm5hbWUiOiJhZG1pbiIsImFsaWFzIjoibmdhZGltaW4iLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlzYWRtaW4iOmZhbHNlfX0.QA-mBwndAIRYqxJ5clbbELa1YA9zcm58hlz2BoDUEnV2TUhktf5iReg5F9davlYsy108oTJtyMrdpG27kUvFy5_WXCw1JJA0VbPZFFsurOSOLxy0qJp64lX-xhRtaLm0llKPd4DfA31UQ1ZstEbZQSfnSaVsRy1HVYyHtMf43Eo',
         // 'Access-Control-Allow-Credentials': true,
         // 'Access-Control-Allow-Origin': 'http://192.168.1.12:8090',
         // 'Access-Control-Request-Method': 'GET'
@@ -40,7 +40,7 @@ export default {
     })
       .then(response => {
         // JSON responses are automatically parsed.
-        console.log(response)
+        console.log(response.data)
         router.push({ path: '/admin' })
       })
       .catch(e => {
