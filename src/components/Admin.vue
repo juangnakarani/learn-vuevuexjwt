@@ -31,7 +31,11 @@ export default {
       withCredentials: true,
       timeout: 1000,
       headers: {
-        'Authorization': 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MDcwMTI5ODcsImlhdCI6MTUwNzAwOTM4NywidXNlcmRhdGEiOnsiaWQiOjEwMCwidXNlcm5hbWUiOiJhZG1pbiIsImFsaWFzIjoibmdhZGltaW4iLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlzYWRtaW4iOmZhbHNlfX0.3_0yhE5qARCO89aZhen4gIyYvFXuyKdjG8-N9m506f_m3pZ_zjrFKa0OVWOwSfTVdBiy-p79DzK6O-UWEGMOXK2N1JPD28T6BWryG6McNnYb_WSLyS_lhxLbwtYZmJApi8S3msUDApxY7S0uukzMRL20WOtF-tCbq9BQOkDmFvw'
+        'Authorization': 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MDcwODU4MDIsImlhdCI6MTUwNzA4MjIwMiwidXNlcmRhdGEiOnsiaWQiOjAsInVzZXJuYW1lIjoiIiwiYWxpYXMiOiIiLCJlbWFpbCI6IiIsImlzYWRtaW4iOmZhbHNlfX0.ZM_xGD6_meOBrtmUj8-CQyYUECUxDBkf4GeH5Bc3PLnS70QAF7x_F1yshZxYwG7ToPQIkeF0snElOMNwA8tK1Xc4aLaeQaf5xNRnS9oX1qqUDGtkNEYCUBUAwNoa7Z17JVU0IUpJ_bqqPadTdjKQvJfZF813EpHoRymSTq65TPQ',
+        // 'Access-Control-Allow-Credentials': true,
+        // 'Access-Control-Allow-Origin': 'http://192.168.1.12:8080',
+        // 'Access-Control-Request-Method': 'GET'
+
       }
     })
       .then(response => {
