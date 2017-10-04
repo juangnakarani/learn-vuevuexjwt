@@ -27,11 +27,11 @@ export default {
     // console.log('a is: ' + this.msg)
 
     // TODO make request and check result for handle 403
-    HTTP.options(`/admin`, {
+    HTTP.get(`/admin`, {
       withCredentials: true,
       timeout: 1000,
       headers: {
-        'Authorization': 'Bearer yJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MDcxMDkzMTEsImlhdCI6MTUwNzEwNTcxMSwidXNlcmRhdGEiOnsiaWQiOjEwMCwidXNlcm5hbWUiOiJhZG1pbiIsImFsaWFzIjoibmdhZGltaW4iLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlzYWRtaW4iOmZhbHNlfX0.QA-mBwndAIRYqxJ5clbbELa1YA9zcm58hlz2BoDUEnV2TUhktf5iReg5F9davlYsy108oTJtyMrdpG27kUvFy5_WXCw1JJA0VbPZFFsurOSOLxy0qJp64lX-xhRtaLm0llKPd4DfA31UQ1ZstEbZQSfnSaVsRy1HVYyHtMf43Eo',
+        'Authorization': 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MDcxMTg4NTcsImlhdCI6MTUwNzExNTI1NywidXNlcmRhdGEiOnsiaWQiOjEwMCwidXNlcm5hbWUiOiJhZG1pbiIsImFsaWFzIjoibmdhZGltaW4iLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlzYWRtaW4iOmZhbHNlfX0.jJ3cA5x4ZvPu6FTYH0QSt_aOAFIjBuX8hUzcL5k-X3jd8CYeb1nPNkiruoZbvUFyv0k9ahl2Dgi4Rrqy6njjbkoHr8VNgglkBc9bvsCj1ELPEzfusXeOTutcnTul78VCCT9oH9c-1CbvdWjy78qkdSTBFZfw00huQYgwtY2m-os',
         // 'Access-Control-Allow-Credentials': true,
         // 'Access-Control-Allow-Origin': 'http://192.168.1.12:8090',
         // 'Access-Control-Request-Method': 'GET'
@@ -40,8 +40,7 @@ export default {
     })
       .then(response => {
         // JSON responses are automatically parsed.
-        console.log(response.data)
-        router.push({ path: '/admin' })
+        console.log(response)
       })
       .catch(e => {
         console.log(e)
