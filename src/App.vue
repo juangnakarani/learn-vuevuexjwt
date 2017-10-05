@@ -4,7 +4,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <button type="button" class="btn btn-link" v-on:click="goToHome">Admin</button>
+            <button type="button" class="btn btn-link" v-on:click="goToHome">Home</button>
           </li>
           <li class="nav-item active">
             <button type="button" class="btn btn-link" v-on:click="goToGuest">Guest</button>
@@ -13,7 +13,7 @@
             <button type="button" class="btn btn-link" v-on:click="goToAdmin">Admin</button>
           </li>
         </ul>
-        <button type="button" class="btn btn-primary" v-if="islogin" @click="goToLoginOut">Logout</button>
+        <button type="button" class="btn btn-danger" v-if="islogin" @click="goToLoginOut">Logout</button>
         <button type="button" class="btn btn-primary" v-else @click="goToLoginOut">Login</button>
       </div>
     </nav>
