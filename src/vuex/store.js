@@ -4,7 +4,8 @@ import getters from './getters.js'
 Vue.use(Vuex)
 
 const state = {
-  token: 'Hello this is will be state token'
+  token: '',
+  auth: false
 }
 
 const mutations = {

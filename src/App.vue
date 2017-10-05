@@ -29,8 +29,11 @@
 </template>
 
 <script>
+// penting gaes jangan lupa import store dan jangan lupa add di export default ya :)
+import store from './vuex/store.js'
 export default {
-  name: 'app'
+  name: 'app',
+  store
 }
 </script>
 

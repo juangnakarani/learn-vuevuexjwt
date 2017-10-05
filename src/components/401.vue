@@ -16,7 +16,7 @@ export default {
   name: 'hello',
   data() {
     return {
-      msg: '403 Forbidden Access'
+      msg: '401 gaes :)'
     }
   }
 }

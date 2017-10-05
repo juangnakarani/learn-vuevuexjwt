@@ -22,8 +22,7 @@
 <script>
 
 import store from '@/vuex/store.js'
-
-
+import router from '@/router/index.js'
 import { HTTP } from '@/router/index'
 
 export default {
@@ -48,7 +47,12 @@ export default {
             HTTP.post(`/login`, login)
                 .then(response => {
                     // JSON responses are automatically parsed.
-                    console.log(response)
+                    console.log(response.status)
+                    console.log(response.data.token)
+                    if(response.status=200){
+                        this.$store.commit('changeToken', response.data.token)
+                        router.push({ path: '/admin' })
+                    }
                 })
                 .catch(e => {
                     console.log(e)
