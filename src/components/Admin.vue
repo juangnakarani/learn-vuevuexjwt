@@ -25,29 +25,33 @@ export default {
   computed: {
     token: function() {
       return this.$store.getters.getToken
+    },
+    auth: function() {
+      return this.$store.getters.getAuth
     }
   },
   created: function() {
-    // `this` points to the vm instance
     // console.log('a is: ' + this.msg)
     console.log('ini token di admin:' + this.token)
-    // TODO make request and check result for handle 403
+    console.log('ini auth di admin:' + this.auth)
+    // TODO check is auth == true
+    if(this.auth != true) {
+      router.push({ path: '/401' })
+    }
+    // TODO make request and check result for handle 401
     HTTP.get(`/admin`, {
       withCredentials: true,
       timeout: 1000,
       headers: {
         'Authorization': 'Bearer '+this.token,
-
       }
     })
       .then(response => {
         // JSON responses are automatically parsed.
         console.log(response)
-
       })
       .catch(e => {
         console.log(e)
-        router.push({ path: '/401' })
       })
   }
 }

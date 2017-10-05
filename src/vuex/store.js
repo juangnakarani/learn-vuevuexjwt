@@ -12,6 +12,9 @@ const mutations = {
   changeToken (anu, token) {
     this.state.token = token
     console.log(anu)
+  },
+  setAuth (param, bool) {
+    this.state.auth = bool
   }
 }
 
