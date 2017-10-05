@@ -51,7 +51,8 @@ export default {
                     console.log(response.data.token)
                     if(response.status=200){
                         this.$store.commit('changeToken', response.data.token)
-                        this.$store.commit('setAuth', true)
+                        this.$store.commit('setIsAuth', true)
+                        this.$store.commit('setIsLogin', true)
                         router.push({ path: '/admin' })
                     }
                 })

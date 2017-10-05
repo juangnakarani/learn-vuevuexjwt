@@ -5,7 +5,8 @@ Vue.use(Vuex)
 
 const state = {
   token: '',
-  auth: false
+  isauth: false,
+  islogin: false
 }
 
 const mutations = {
@@ -13,8 +14,11 @@ const mutations = {
     this.state.token = token
     console.log(anu)
   },
-  setAuth (param, bool) {
-    this.state.auth = bool
+  setIsAuth (param, bool) {
+    this.state.isauth = bool
+  },
+  setIsLogin (param, bool) {
+    this.state.islogin = bool
   }
 }
 

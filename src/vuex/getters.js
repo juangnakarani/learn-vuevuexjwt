@@ -2,7 +2,10 @@ export default {
   getToken: function (state) {
     return state.token
   },
-  getAuth: function (state) {
-    return state.auth
+  getIsAuth: function (state) {
+    return state.isauth
+  },
+  getIsLogin: function (state) {
+    return state.islogin
   }
 }

@@ -4,22 +4,17 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="#">Home
-              <span class="sr-only">(current)</span>
-            </a>
+            <button type="button" class="btn btn-link" v-on:click="goToHome">Admin</button>
           </li>
           <li class="nav-item active">
-            <router-link to="/guest">
-              <a class="nav-link">Guest</a>
-            </router-link>
+            <button type="button" class="btn btn-link" v-on:click="goToGuest">Guest</button>
           </li>
           <li class="nav-item">
-            <button type="button" class="btn btn-link" v-on:click="linkadmin">Admin</button>
+            <button type="button" class="btn btn-link" v-on:click="goToAdmin">Admin</button>
           </li>
         </ul>
-        <router-link to="/login">
-          <a class="nav-link">Login</a>
-        </router-link>
+        <button type="button" class="btn btn-primary" v-if="islogin" @click="goToLoginOut">Logout</button>
+        <button type="button" class="btn btn-primary" v-else @click="goToLoginOut">Login</button>
       </div>
     </nav>
     <router-view></router-view>
@@ -35,8 +30,29 @@ export default {
   name: 'app',
   store,
   methods: {
-    linkadmin: function() {
+    goToAdmin: function() {
       router.push({ path: '/admin' })
+    },
+    goToGuest: function() {
+      router.push({ path: '/guest' })
+    },
+    goToHome: function() {
+      router.push({ path: '/' })
+    },
+    goToLoginOut: function() {
+      if (this.islogin == true) {
+        this.$store.commit('changeToken', '')
+        this.$store.commit('setIsAuth', false)
+        this.$store.commit('setIsLogin', false)
+
+      }
+      router.push({ path: '/login' })
+
+    }
+  },
+  computed: {
+    islogin: function() {
+      return this.$store.getters.getIsLogin
     }
   }
 }
@@ -45,48 +61,48 @@ export default {
 
 <style>
 body {
-    padding-top: 40px;
-    padding-bottom: 40px;
-    background-color: #eee;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #eee;
 }
 
 .form-signin {
-    max-width: 330px;
-    padding: 8px;
-    margin: 0 auto;
+  max-width: 330px;
+  padding: 8px;
+  margin: 0 auto;
 }
 
 .form-signin .form-signin-heading,
 .form-signin .checkbox {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .form-signin .checkbox {
-    font-weight: normal;
+  font-weight: normal;
 }
 
 .form-signin .form-control {
-    position: relative;
-    height: auto;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    padding: 10px;
-    font-size: 14px;
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 10px;
+  font-size: 14px;
 }
 
 .form-signin .form-control:focus {
-    z-index: 2;
+  z-index: 2;
 }
 
 .form-signin input[type="username"] {
-    margin-bottom: -1px;
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
 .form-signin input[type="password"] {
-    margin-bottom: 10px;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }
 </style>

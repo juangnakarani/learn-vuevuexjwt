@@ -26,33 +26,38 @@ export default {
     token: function() {
       return this.$store.getters.getToken
     },
-    auth: function() {
-      return this.$store.getters.getAuth
+    isauth: function() {
+      return this.$store.getters.getIsAuth
+    },
+    islogin: function() {
+      return this.$store.getters.getIsLogin
     }
   },
   created: function() {
     // console.log('a is: ' + this.msg)
-    console.log('ini token di admin:' + this.token)
-    console.log('ini auth di admin:' + this.auth)
+    console.log('token di admin:' + this.token)
+    console.log('auth di admin:' + this.isauth)
+    console.log('login di admin:' + this.islogin)
     // TODO check is auth == true
-    if(this.auth != true) {
+    if (this.isauth != true) {
       router.push({ path: '/401' })
+    } else {
+      // TODO make request and check result for handle 401
+      HTTP.get(`/admin`, {
+        withCredentials: true,
+        timeout: 1000,
+        headers: {
+          'Authorization': 'Bearer ' + this.token,
+        }
+      })
+        .then(response => {
+          // JSON responses are automatically parsed.
+          console.log(response)
+        })
+        .catch(e => {
+          console.log(e)
+        })
     }
-    // TODO make request and check result for handle 401
-    HTTP.get(`/admin`, {
-      withCredentials: true,
-      timeout: 1000,
-      headers: {
-        'Authorization': 'Bearer '+this.token,
-      }
-    })
-      .then(response => {
-        // JSON responses are automatically parsed.
-        console.log(response)
-      })
-      .catch(e => {
-        console.log(e)
-      })
   }
 }
 </script>
