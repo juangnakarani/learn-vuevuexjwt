@@ -49,3 +49,31 @@ export const HTTP = axios.create({
   }
 })
 ```
+`baseURL`: URL server yang akan dituju.
+`withCredentials`: untuk jwt authentication akan menggunakan value `true` namun itu akan di handle pada method/func.
+
+Component yang akan menggunakan axios harus `import { HTTP } from '@/router/index'`.
+
+## Cara Installasi Vuex
+`$ npm install vuex --save`
+
+vuex dalam contoh ini dibuat dibawah directory `vuex`. file utama vuex adalah `store.js`:
+```javascript
+import Vuex from 'vuex'
+Vue.use(Vuex)
+
+const state ...
+const mutations ...
+
+export default new Vuex.Store({
+  state: state,
+  mutations: mutations,
+  getters: getters
+})
+```
+pada ES2015 instansiasi `Vuex.Store` bisa dengan cara:
+```javascript
+export default new Vuex.Store({
+  state, mutations, getters
+})
+```
